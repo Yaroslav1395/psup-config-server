@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: CONFIG_SERVER
+  cloud:
+    #Config server settings
+    config:
+      server:
+        git:
+          uri: https://github.com/Yaroslav1395/psup-config-repo.git
+          default-label: main
+          clone-on-start: true
+          search-paths: {application}
+
+#Loging config
+#If !local = INFO
+logging:
+  level:
+    org.springframework.cloud: DEBUG
+    org.springframework.web: DEBUG
+
+#Security config. Should be env property
+config:
+  server:
+    username: myUsername
+    password: mySecretPassword
+encrypt:
+  key: mySuperSecretKey
