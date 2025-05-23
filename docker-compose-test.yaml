@@ -1,0 +1,14 @@
+services:
+  config-server:
+    image: psup-config/config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+    networks:
+      - config-net
+
+networks:
+  config-net:
+    driver: bridge
