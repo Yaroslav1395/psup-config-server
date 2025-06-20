@@ -7,8 +7,11 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=test
     networks:
-      - psup-test-net
+      - config-server-net
+      - psup-shared-net
 
 networks:
-  psup-test-net:
+  config-server-net:
+    driver: bridge
+  psup-shared-net:
     external: true
